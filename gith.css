@@ -47,18 +47,19 @@ header{
     top: 0;
     left: 0;
     width: 100%;
-    background-color: rgba(135, 134, 134, 0.6);
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
     z-index: 1000;
     display: flex;
     justify-content: space-between;
     box-sizing: border-box;
-    
+    padding: 10px 20px;
  }
  
 
   #navbar img{
-    width: 70px;
-    margin-left: 0;
+    width: 53px;
+    
 
   }
 #navbar ul{
@@ -67,37 +68,54 @@ header{
     list-style: none;
     margin: 0;
     padding: 0;
-    flex-wrap: nowrap;
-    align-items: center;
+   flex-wrap: nowrap;
+   align-items: center;
 }
 #navbar ul li a{
-    padding: 8px 12px;
-    color: white;
-    font-weight: 600px;
-    border-radius: 17px;
-    text-decoration: none;
-    background-color: transparent;
-    transition: background-color 0.3s ease, color 0.3s ease;
-    white-space: nowrap;
+   padding: 8px;
+   color: #fff;
+   font-weight: 600px;
+   border-radius: 16px;
+   text-decoration: none;
+   background-color: transparent;
+   transition: background-color 0.3s ease;
+   white-space: nowrap;
+   margin-right: 40px;
 }  
 
 #navbar ul li a:hover{
-     border: 2px solid #fff;  
-    
+     border: 2px solid #fff; 
+     
 
 }
+.menu-toggle{
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    margin-right: 27px;
+}
+.menu-toggle .bar{
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+}
 header .content {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 75vh;
-    
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    height: 100vh;
 }
 header .content h1{
-    font-size: 40px;
-    
-   
+    font-size: clamp(2rem,5vw,4rem);
+    margin-bottom: 15px;
+   line-height: 1.2;
 }
 header .content p{
     margin: 20px 0 40px;
@@ -129,6 +147,45 @@ header *{
     background-color: #fdfcfb;
     color: black;
 
+}
+@media(max-width:768px){
+    .menu-toggle{
+        display: flex;
+    }
+    #nav-menu{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(19, 1, 1, 0.9);
+        display: none;
+        flex-direction: column;
+        padding: 20px 0;
+        text-align: center;
+    }
+    #nav-menu.active{
+        display: flex;
+    }
+    #navbar nav ul{
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+    }
+    #navbar nav ul li a{
+        font-size: 18px;
+        display: block;
+        padding: 10px;
+    }
+    /*عند الفتح تتحول X الخطوط الثلاثة الى علامة اختياري*/
+    .menu-toggle.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .menu-toggle.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
 }
 
 /* <!--header end-->*/
