@@ -464,3 +464,10 @@ header *{
     }
 }
 /*chapters section end*/
+/*ترتيب على شاشة*/
+@media (max-width: 600px) {
+    .container-gallery {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    }
+}
